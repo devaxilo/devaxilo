@@ -176,8 +176,28 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\custom.css" />
+    <Content Include="Assets\css\font-awesome.min.css" />
+    <Content Include="Assets\css\openSansFont.css" />
+    <Content Include="Assets\css\user.css" />
+    <Content Include="Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\js\action_url.js" />
+    <Content Include="Assets\js\bootstrap-confirmation.js" />
+    <Content Include="Assets\js\bootstrap.min.js" />
+    <Content Include="Assets\js\common.js" />
+    <Content Include="Assets\js\jquery.min.js" />
+    <Content Include="Assets\js\knockout-3.4.2.js" />
+    <Content Include="Assets\js\knockout.mapping.js" />
+    <Content Include="Assets\js\lodash.js" />
+    <Content Include="Assets\js\moment.min.js" />
+    <Content Include="Assets\js\outsite_action_url.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -191,11 +211,41 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\img\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Scripts\" />
+    <Folder Include="Scripts\app\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\fonts\59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="Assets\fonts\cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2" />
+    <Content Include="Assets\fonts\DXI1ORHCpsQm3Vp6mXoaTa-j2U0lmluP9RWlSytm3ho.woff2" />
+    <Content Include="Assets\fonts\DXI1ORHCpsQm3Vp6mXoaTaaRobkAwv3vxw3jMhVENGA.woff2" />
+    <Content Include="Assets\fonts\DXI1ORHCpsQm3Vp6mXoaTegdm0LZdjqr5-oayXSOefg.woff2" />
+    <Content Include="Assets\fonts\DXI1ORHCpsQm3Vp6mXoaTf8zf_FOSsgRmwsS7Aa9k2w.woff2" />
+    <Content Include="Assets\fonts\DXI1ORHCpsQm3Vp6mXoaTRWV49_lSm1NYrwo-zkhivY.woff2" />
+    <Content Include="Assets\fonts\DXI1ORHCpsQm3Vp6mXoaTT0LW-43aMEzIO6XUTLjad8.woff2" />
+    <Content Include="Assets\fonts\DXI1ORHCpsQm3Vp6mXoaTZX5f-9o1vgP2EXwfjgl7AY.woff2" />
+    <Content Include="Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\fonts\FontAwesome.otf" />
+    <Content Include="Assets\fonts\k3k702ZOKiLJc3WVjuplzBWV49_lSm1NYrwo-zkhivY.woff2" />
+    <Content Include="Assets\fonts\k3k702ZOKiLJc3WVjuplzD0LW-43aMEzIO6XUTLjad8.woff2" />
+    <Content Include="Assets\fonts\k3k702ZOKiLJc3WVjuplzJX5f-9o1vgP2EXwfjgl7AY.woff2" />
+    <Content Include="Assets\fonts\k3k702ZOKiLJc3WVjuplzK-j2U0lmluP9RWlSytm3ho.woff2" />
+    <Content Include="Assets\fonts\k3k702ZOKiLJc3WVjuplzKaRobkAwv3vxw3jMhVENGA.woff2" />
+    <Content Include="Assets\fonts\k3k702ZOKiLJc3WVjuplzOgdm0LZdjqr5-oayXSOefg.woff2" />
+    <Content Include="Assets\fonts\k3k702ZOKiLJc3WVjuplzP8zf_FOSsgRmwsS7Aa9k2w.woff2" />
+    <Content Include="Assets\fonts\K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="Assets\fonts\LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="Assets\fonts\RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="Assets\fonts\TitilliumWeb-Light.woff" />
+    <Content Include="Assets\fonts\u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="Assets\fonts\xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
