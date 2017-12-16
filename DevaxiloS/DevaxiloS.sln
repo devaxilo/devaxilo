@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevaxiloS.Infras.Common", "DevaxiloS.Infras.Common\DevaxiloS.Infras.Common.csproj", "{8DEDBD90-FA51-4796-BBA5-7F6DDAFA265E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevaxiloS.Infras", "DevaxiloS.Infras\DevaxiloS.Infras.csproj", "{07682C36-A6D8-44CF-BB02-20BAC52A7F29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevaxiloS.DataAccess.MsSql", "DevaxiloS.DataAccess.MsSql\DevaxiloS.DataAccess.MsSql.csproj", "{06FF94A3-98B9-4012-8E3E-E8B98B1E1E23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevaxiloS.Services", "DevaxiloS.Services\DevaxiloS.Services.csproj", "{9C91E05C-1990-4057-8295-D0AE0A809A25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevaxiloS.Web.FrontEnd", "DevaxiloS.Web.FrontEnd\DevaxiloS.Web.FrontEnd.csproj", "{45565EF0-9319-48E0-9F7F-1A1437095ED4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DEDBD90-FA51-4796-BBA5-7F6DDAFA265E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DEDBD90-FA51-4796-BBA5-7F6DDAFA265E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DEDBD90-FA51-4796-BBA5-7F6DDAFA265E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DEDBD90-FA51-4796-BBA5-7F6DDAFA265E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07682C36-A6D8-44CF-BB02-20BAC52A7F29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07682C36-A6D8-44CF-BB02-20BAC52A7F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07682C36-A6D8-44CF-BB02-20BAC52A7F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07682C36-A6D8-44CF-BB02-20BAC52A7F29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06FF94A3-98B9-4012-8E3E-E8B98B1E1E23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06FF94A3-98B9-4012-8E3E-E8B98B1E1E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06FF94A3-98B9-4012-8E3E-E8B98B1E1E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06FF94A3-98B9-4012-8E3E-E8B98B1E1E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C91E05C-1990-4057-8295-D0AE0A809A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C91E05C-1990-4057-8295-D0AE0A809A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C91E05C-1990-4057-8295-D0AE0A809A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C91E05C-1990-4057-8295-D0AE0A809A25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45565EF0-9319-48E0-9F7F-1A1437095ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45565EF0-9319-48E0-9F7F-1A1437095ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45565EF0-9319-48E0-9F7F-1A1437095ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45565EF0-9319-48E0-9F7F-1A1437095ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
