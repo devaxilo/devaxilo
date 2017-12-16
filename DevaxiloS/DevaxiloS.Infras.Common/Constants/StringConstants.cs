@@ -1,4 +1,4 @@
-﻿namespace HACS.Common.Constants
+﻿namespace DevaxiloS.Infras.Common.Constants
 {
     public static class StringConstants
     {

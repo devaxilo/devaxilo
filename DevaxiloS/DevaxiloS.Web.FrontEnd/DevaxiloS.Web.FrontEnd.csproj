@@ -247,6 +247,16 @@
     <Content Include="Assets\fonts\u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2" />
     <Content Include="Assets\fonts\xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevaxiloS.Infras.Common\DevaxiloS.Infras.Common.csproj">
+      <Project>{8dedbd90-fa51-4796-bba5-7f6ddafa265e}</Project>
+      <Name>DevaxiloS.Infras.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevaxiloS.Services\DevaxiloS.Services.csproj">
+      <Project>{9c91e05c-1990-4057-8295-d0ae0a809a25}</Project>
+      <Name>DevaxiloS.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

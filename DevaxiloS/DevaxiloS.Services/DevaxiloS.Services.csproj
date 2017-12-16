@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>9c91e05c-1990-4057-8295-d0ae0a809a25</ProjectGuid>
+    <ProjectGuid>{9C91E05C-1990-4057-8295-D0AE0A809A25}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DevaxiloS.Services</RootNamespace>
@@ -30,24 +30,47 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Configuration\ServiceLocator.cs" />
+    <Compile Include="CustomIdentity\AspnetIdentityUser.cs" />
+    <Compile Include="DomainModels\BaseWebRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevaxiloS.DataAccess.MsSql\DevaxiloS.DataAccess.MsSql.csproj">
+      <Project>{06ff94a3-98b9-4012-8e3e-e8b98b1e1e23}</Project>
+      <Name>DevaxiloS.DataAccess.MsSql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevaxiloS.Infras.Common\DevaxiloS.Infras.Common.csproj">
+      <Project>{8DEDBD90-FA51-4796-BBA5-7F6DDAFA265E}</Project>
+      <Name>DevaxiloS.Infras.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevaxiloS.Infras\DevaxiloS.Infras.csproj">
+      <Project>{07682c36-a6d8-44cf-bb02-20bac52a7f29}</Project>
+      <Name>DevaxiloS.Infras</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\Common\" />
+    <Folder Include="Commands\Web\Authentication\" />
+    <Folder Include="Commands\Web\Dashboard\" />
+    <Folder Include="Commands\Web\HACSUser\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -57,5 +80,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
- </Project>
+</Project>

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace HACS.Common.Utils
+namespace DevaxiloS.Infras.Common.Utils
 {
     public static class CryptoUtils
     {

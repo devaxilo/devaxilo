@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace HACS.Common.Enums
+namespace DevaxiloS.Infras.Common.Enums
 {
     public enum SysStatus : byte
     {

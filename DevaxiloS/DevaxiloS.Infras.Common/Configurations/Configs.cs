@@ -1,7 +1,4 @@
-﻿using System.Configuration;
-
-
-namespace HACS.Common.Configurations
+﻿namespace DevaxiloS.Infras.Common.Configurations
 {
     public static class DevaxiloConfiguration
     {
