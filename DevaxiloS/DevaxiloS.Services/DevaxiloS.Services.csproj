@@ -44,9 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Web\Customer\SaveCustomerCommand.cs" />
     <Compile Include="Configuration\ServiceLocator.cs" />
     <Compile Include="CustomIdentity\AspnetIdentityUser.cs" />
     <Compile Include="DomainModels\BaseWebRequest.cs" />
+    <Compile Include="DomainModels\Customer\CustomerResponse.cs" />
+    <Compile Include="DomainModels\Customer\CustomerRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,7 +73,6 @@
     <Folder Include="Commands\Common\" />
     <Folder Include="Commands\Web\Authentication\" />
     <Folder Include="Commands\Web\Dashboard\" />
-    <Folder Include="Commands\Web\HACSUser\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

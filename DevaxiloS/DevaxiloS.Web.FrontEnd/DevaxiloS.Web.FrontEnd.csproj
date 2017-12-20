@@ -166,6 +166,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BaseWebController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,8 +214,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\img\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Scripts\app\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -251,6 +253,10 @@
     <ProjectReference Include="..\DevaxiloS.Infras.Common\DevaxiloS.Infras.Common.csproj">
       <Project>{8dedbd90-fa51-4796-bba5-7f6ddafa265e}</Project>
       <Name>DevaxiloS.Infras.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevaxiloS.Infras\DevaxiloS.Infras.csproj">
+      <Project>{07682C36-A6D8-44CF-BB02-20BAC52A7F29}</Project>
+      <Name>DevaxiloS.Infras</Name>
     </ProjectReference>
     <ProjectReference Include="..\DevaxiloS.Services\DevaxiloS.Services.csproj">
       <Project>{9c91e05c-1990-4057-8295-d0ae0a809a25}</Project>
