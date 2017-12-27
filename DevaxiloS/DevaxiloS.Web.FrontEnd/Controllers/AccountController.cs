@@ -1,0 +1,42 @@
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
+using DevaxiloS.Services.Commands.Web.Customer;
+using DevaxiloS.Services.DomainModels.Customer;
+
+namespace DevaxiloS.Web.FrontEnd.Controllers
+{
+    public class AccountController : BaseWebController
+    {
+        [AllowAnonymous]
+        public ActionResult Login()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToDashboard();
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [AllowAnonymous]
+        public async Task<ActionResult> Login(CustomerLoginRequest model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            var cmd = new ValidateCustomerEmailCommand(0, model.Email);
+            await CommandBus.Send(cmd);
+            var isOk = cmd.Response.ResponseObj;
+            if (!isOk)
+            {
+                ModelState.AddModelError("Account", cmd.Response.Message);
+            }
+            return isOk ? View("ValidateSuccess") : View(model);
+        }
+
+        private ActionResult RedirectToDashboard()
+        {
+            return RedirectToAction("Index", "Dashboard");
+        }
+    }
+}

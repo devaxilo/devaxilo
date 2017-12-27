@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -167,6 +168,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="BaseWebController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -180,20 +183,26 @@
   <ItemGroup>
     <Content Include="Assets\css\bootstrap.min.css" />
     <Content Include="Assets\css\custom.css" />
+    <Content Include="Assets\css\daterangepicker.css" />
     <Content Include="Assets\css\font-awesome.min.css" />
     <Content Include="Assets\css\openSansFont.css" />
+    <Content Include="Assets\css\PagedList.css" />
+    <Content Include="Assets\css\select2.min.css" />
     <Content Include="Assets\css\user.css" />
     <Content Include="Assets\fonts\fontawesome-webfont.svg" />
     <Content Include="Assets\js\action_url.js" />
     <Content Include="Assets\js\bootstrap-confirmation.js" />
     <Content Include="Assets\js\bootstrap.min.js" />
     <Content Include="Assets\js\common.js" />
+    <Content Include="Assets\js\daterangepicker.js" />
     <Content Include="Assets\js\jquery.min.js" />
     <Content Include="Assets\js\knockout-3.4.2.js" />
     <Content Include="Assets\js\knockout.mapping.js" />
+    <Content Include="Assets\js\knockstrap.min.js" />
     <Content Include="Assets\js\lodash.js" />
     <Content Include="Assets\js\moment.min.js" />
     <Content Include="Assets\js\outsite_action_url.js" />
+    <Content Include="Assets\js\select2.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -215,6 +224,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Assets\img\" />
     <Folder Include="Scripts\app\" />
+    <Folder Include="Views\Account\" />
+    <Folder Include="Views\Dashboard\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>

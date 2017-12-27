@@ -10,5 +10,7 @@
 
         public const string PrefixSiteName = "HACS - ";
         public const string PasswordRegex = @"^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,15}$";
+        public const int PageSize = 12;
+        public const string DateTimeFormatUs = "yyyy-MM-dd HH:mm:ss";
     }
 }

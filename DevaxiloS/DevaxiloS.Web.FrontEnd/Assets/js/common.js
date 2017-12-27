@@ -29,6 +29,36 @@
         });
     }
 
+    common.postFormWithImage = function (url, data, successCallBackFn) {
+        $.ajax({
+            url: url,
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                if (response.Message && response.Message.length > 0) {
+                    if (!response.IsError) {
+                        common.showSuccess(response.Message);
+                    } else {
+                        common.showError(response.Message);
+                    }
+                }
+                successCallBackFn(response);
+            },
+
+            error: function (jqXHR, exception) {
+                if (jqXHR.status === 403) {
+                    //window.location.replace("/Home/Account/NotAuthorized");
+                }
+                else if (jqXHR.status === 500) {
+                    //showError("500: System Error");
+                }
+            }
+        });
+    }
+
     common.autoRedirect = (ele, seconds, url) => {
         var timer = setInterval(function () {
             seconds--;
@@ -45,6 +75,13 @@
     common.parseDate = (asp_net_mvc_date) => {
         if (asp_net_mvc_date != null) {
             return moment(asp_net_mvc_date).format("DD/MM/YYYY");
+        }
+        return null;
+    }
+
+    common.parseDateTime = (asp_net_mvc_date) => {
+        if (asp_net_mvc_date != null) {
+            return moment(asp_net_mvc_date).format("DD/MM/YYYY HH:mm");
         }
         return null;
     }
@@ -87,4 +124,17 @@
         }
     }
 
+    common.renderImage = function (file, containerId) {
+        // generate a new FileReader object
+        var reader = new FileReader();
+        // inject an image with the src url
+        reader.onload = function (event) {
+            var imgUrl = event.target.result;
+            $("#" + containerId).html("<img class='ecatalog-product-img' src='" + imgUrl + "' />");
+        }
+        // when the file is read it triggers the onload event above.
+        reader.readAsDataURL(file);
+    }
+
 })(window.common = window.common || {}, jQuery);
+

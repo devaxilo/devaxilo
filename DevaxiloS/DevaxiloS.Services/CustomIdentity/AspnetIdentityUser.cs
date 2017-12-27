@@ -16,31 +16,27 @@ namespace DevaxiloS.Services.CustomIdentity
         public Guid UserId { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Picture { get; set; }
+        public string FullName { get; set; }
         public string PasswordHash { get; set; }
         public SysStatus UserStatus { get; set; }
-        public string Expired { get; set; }
-        public string Roles { get; set; }
-        public string OrganisationId { get; set; }
-        public string OrganisationName { get; set; }
-        public string GroupId { get; set; }
-        public string GroupName { get; set; }
     }
 
     public static class UserExtended
     {
         public static int GetUserDbId(this IPrincipal user)
         {
-
             var claim = ((ClaimsIdentity)user.Identity).FindFirst("UserDbId");
             return int.Parse(claim?.Value);
         }
 
+        public static string GetUserId(this IPrincipal user)
+        {
+            var claim = ((ClaimsIdentity)user.Identity).FindFirst("UserId");
+            return claim?.Value;
+        }
+
         public static string GetEmail(this IPrincipal user)
         {
-
             var claim = ((ClaimsIdentity)user.Identity).FindFirst(ClaimTypes.Email);
             return claim?.Value;
         }
@@ -51,23 +47,11 @@ namespace DevaxiloS.Services.CustomIdentity
             return claim?.Value;
         }
 
-        public static string GetUserId(this IPrincipal user)
+        public static string GetFullName(this IPrincipal user)
         {
-            var claim = ((ClaimsIdentity)user.Identity).FindFirst("UserId");
+            var claim = ((ClaimsIdentity)user.Identity).FindFirst("FullName");
             return claim?.Value;
         }
-
-        public static string GetFirstName(this IPrincipal user)
-        {
-            var claim = ((ClaimsIdentity)user.Identity).FindFirst("FirstName");
-            return claim?.Value;
-        }
-        public static string GetLastName(this IPrincipal user)
-        {
-            var claim = ((ClaimsIdentity)user.Identity).FindFirst("LastName");
-            return claim?.Value;
-        }
-
     }
 
     public class UserStore : IUserStore<AspnetIdentityUser>, IUserLoginStore<AspnetIdentityUser>, IUserPasswordStore<AspnetIdentityUser>

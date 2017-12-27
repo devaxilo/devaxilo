@@ -36,6 +36,8 @@ namespace DevaxiloS.Web.FrontEnd
                 .Include("~/Assets/css/bootstrap.min.css", new CssRewriteUrlTransform())
                 .Include("~/Assets/css/font-awesome.min.css", new CssRewriteUrlTransform())
                 .Include("~/Assets/css/openSansFont.css", new CssRewriteUrlTransform())
+                .Include("~/Assets/css/select2.min.css", new CssRewriteUrlTransform())
+                .Include("~/Assets/css/daterangepicker.css", new CssRewriteUrlTransform())
                 .Include("~/Assets/css/user.css", new CssRewriteUrlTransform())
                 .Include("~/Assets/css/custom.css", new CssRewriteUrlTransform())
             );
@@ -50,18 +52,13 @@ namespace DevaxiloS.Web.FrontEnd
                     , "~/Assets/js/bootstrap-confirmation.js"
                     , "~/Assets/js/knockout-3.4.2.js"
                     , "~/Assets/js/knockout.mapping.js"
+                    , "~/Assets/js/knockstrap.min.js"
                     , "~/Assets/js/lodash.js"
                     , "~/Assets/js/moment.min.js"
+                    , "~/Assets/js/select2.min.js"
+                    , "~/Assets/js/daterangepicker.js"
                     , "~/Assets/js/action_url.js"
                     , "~/Assets/js/common.js")
-            );
-
-            bundles.Add(new ScriptBundle("~/bundles/dashboard_js")
-                .Include("~/Scripts/app/dashboard.js")
-            );
-
-            bundles.Add(new ScriptBundle("~/bundles/profile_js")
-                .Include("~/Scripts/app/profile.notifications.js")
             );
         }
     }

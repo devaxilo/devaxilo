@@ -30,10 +30,15 @@ body {
 .container {
     width:100%;
 }
-.pad-left-70{
+.marg-left-70{
 	margin-left: 70px;
     margin-right: 5px;
 }
+
+.marg-left-50 {
+    margin-left: 50px;
+}
+
 .small-part{
 	/*border:1px solid #e4e4e4;*/
 	padding:10px 0px 10px 0px;
@@ -237,7 +242,7 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+.register_frame input[type=text], .register_frame input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -460,7 +465,7 @@ max-height: 1000px; }
 	width:30px;height:30px;
 	align-items: center;
 	justify-content: center;
-	margin-top: 10px;
+	margin-top: 13px;
 }
 ul.group-list li{
 	padding:10px 0px 10px 0px;
@@ -489,7 +494,7 @@ ul.group-list li{
   .main-menu{
 	  display:none;
   }
-  .pad-left-70{
+  .marg-left-70, .marg-left-50{
 	  margin-left:5px;
 	  margin-right:5px;
   }

@@ -2,8 +2,36 @@
     padding-right: 10px !important;
 }
 
+.no-padding-right {
+    padding-right: 0 !important;
+}
+
+.marg-top-10 {
+    margin-top: 10px !important;
+}
+
+.table-truncate {
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.small-alert {
+    display: inline-block;
+    padding: .4em .8em;
+    font-weight: 400;
+    line-height: 1;
+    border-radius: 100px;
+    border: 1px solid transparent;
+}
+
 .success {
     color: #28b62c;
+}
+
+.input-hidden {
+    display: none!important;
+    visibility: hidden!important;
 }
 
 .navbar-nav>.active>a {
@@ -306,8 +334,17 @@
     max-height: 40px;
     min-height: 40px;
     min-width: 40px;
-    border-radius: 50%
+    border-radius: 50%;
 }
+
+.sidebar-Placeholder-image {
+    max-height: 50px;
+    min-height: 50px;
+    min-width: 40px;
+    width: auto;
+    border-radius: 50%;
+}
+
 .iconPlaceholder-text {
     display: block;
     margin: 0 auto;
@@ -719,4 +756,88 @@
 
 .custom-bottom-border {
     border-bottom: 1px solid #EEF3F5;
+}
+
+.account-profile-picture-container {
+    margin-top: 20px
+}
+.image-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto
+}
+.profile-picture-delete {
+    position: absolute;
+    display: none;
+    top: 20px;
+    right: -10px;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px
+}
+@media screen and (max-width: 991px) {
+    .profile-picture-delete {
+        display: block
+    }
+}
+
+.show-delete {
+    display: block
+}
+
+.radius-container {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #B7CEDD;
+    overflow: hidden;
+    background-color: #EEF3F5;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat
+}
+
+.default-profile-picture {
+    background-image: url(../img/default-profile.svg)!important;
+    position: relative
+}
+
+.form-custom:before,
+.form-custom:after {
+    content: " ";
+    display: table
+}
+.form-custom:after {
+    clear: both
+}
+.form-custom-padding {
+    padding-top: 20px;
+    padding-bottom: 30px
+}
+
+.form-custom-error-text {
+    font-weight: 500;
+    color: #DF4D4D;
+}
+
+.action-list-container {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    height: calc(100vh - 63px);
+    padding-top : 20px
+}
+.action-list-container .actions-filter-bar {
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+}
+.action-list-container .action-list {
+    -ms-flex: 1 0;
+    flex: 1 0;
+    min-height: 300px;
 }
