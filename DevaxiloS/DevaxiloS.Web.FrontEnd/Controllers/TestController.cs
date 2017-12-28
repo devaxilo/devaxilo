@@ -12,7 +12,7 @@ namespace DevaxiloS.Web.FrontEnd.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return ErrorModelToClient();
+                return ErrorModelToClient(); 
             }
             var cmd = new SaveCustomerCommand(0, model);
             await CommandBus.Send(cmd);
