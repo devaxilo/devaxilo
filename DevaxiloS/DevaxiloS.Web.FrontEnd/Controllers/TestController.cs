@@ -14,7 +14,7 @@ namespace DevaxiloS.Web.FrontEnd.Controllers
             {
                 return ErrorModelToClient(); 
             }
-            var cmd = new SaveCustomerCommand(0, model);
+            var cmd = new SaveCustomerCommand(0, model); 
             await CommandBus.Send(cmd);
             var response = cmd.Response.ResponseObj;
             return View();
