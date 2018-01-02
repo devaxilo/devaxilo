@@ -224,7 +224,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Assets\img\" />
     <Folder Include="Scripts\app\" />
-    <Folder Include="Views\Account\" />
     <Folder Include="Views\Dashboard\" />
     <Folder Include="Views\Test\" />
   </ItemGroup>
@@ -273,6 +272,9 @@
       <Project>{9c91e05c-1990-4057-8295-d0ae0a809a25}</Project>
       <Name>DevaxiloS.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
