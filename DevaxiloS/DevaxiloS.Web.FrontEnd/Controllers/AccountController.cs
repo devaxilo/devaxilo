@@ -21,7 +21,7 @@ namespace DevaxiloS.Web.FrontEnd.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public async Task<ActionResult> Login(CustomerLoginRequest model)
+        public async Task<ActionResult> Login(EmailValidationRequest model)
         {
             if (!ModelState.IsValid) return View(model);
             var cmd = new ValidateCustomerEmailCommand(0, model.Email);
@@ -30,8 +30,10 @@ namespace DevaxiloS.Web.FrontEnd.Controllers
             if (!isOk)
             {
                 ModelState.AddModelError("Account", cmd.Response.Message);
+                return View(model);
             }
-            return isOk ? View("ValidateSuccess") : View(model);
+            ViewBag.Email = model.Email;
+            return View("ValidateSuccess");
         }
 
         private ActionResult RedirectToDashboard()

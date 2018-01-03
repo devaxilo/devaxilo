@@ -170,7 +170,6 @@
     <Compile Include="BaseWebController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,7 +224,7 @@
     <Folder Include="Assets\img\" />
     <Folder Include="Scripts\app\" />
     <Folder Include="Views\Dashboard\" />
-    <Folder Include="Views\Test\" />
+    <Folder Include="Views\Shared\App\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -275,6 +274,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\ValidateSuccess.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,7 +1,39 @@
-﻿
+﻿@model DevaxiloS.Services.DomainModels.Customer.EmailValidationRequest
+
 @{
-    ViewBag.Title = "Đăng nhập hệ thống Lô Tô Việt";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewBag.Title = "Đăng nhập";
 }
 
-<h2>Đăng nhập</h2>
+<div class="clearfix">
+    <a class="log_logo" href="javascript:void(0)">
+        <span class="fa fa-mobile"></span>SiteName
+    </a>
+</div>
 
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "formLogin", @style = "border: none" }))
+{
+    @Html.AntiForgeryToken()
+    <p>@Html.ValidationSummary(true, "", new { @class = "text-danger" })</p>
+
+    <label><b>Email</b></label>
+    @Html.TextBoxFor(model => model.Email)
+    <p>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</p>
+    <button type="submit" id="btnLogin">Đăng nhập</button>
+}
+
+@section Scripts
+{
+    <script>
+        $("#btnLogin").click((evt) => {
+            evt.preventDefault();
+            var isValid = $("#formLogin").valid();
+            if (isValid) {
+                $(this).attr("disabled", true);
+                $("#formLogin").submit();
+                return false;
+            }
+            return false;
+        });
+    </script>
+}
