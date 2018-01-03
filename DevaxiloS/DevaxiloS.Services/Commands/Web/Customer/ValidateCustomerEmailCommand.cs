@@ -36,7 +36,7 @@ namespace DevaxiloS.Services.Commands.Web.Customer
                     return;
                 }
 
-                var userLogin = new AccountLogin{
+                var userLogin = new AccountLogin {
                     ExpiredAt = dnow.AddMinutes(15),
                     HashLoginCode = CryptoUtils.Encrypt(dnow.ToString(StringConstants.DateTimeFormatUs), command.Email)
                 };
@@ -59,6 +59,7 @@ namespace DevaxiloS.Services.Commands.Web.Customer
                 {
                     userLogin.AccId = user.Id;
                 }
+                context.AccountLogin.Add(userLogin);
                 await context.SaveChangesAsync();
 
                 //TODO: send email
