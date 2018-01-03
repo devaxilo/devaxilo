@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    @Html.Partial("App/_Head")
+</head>
+<body>
+    @RenderBody()
+    @Scripts.Render("~/bundles/app_js")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+

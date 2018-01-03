@@ -3,10 +3,15 @@
 namespace DevaxiloS.Web.FrontEnd.Controllers
 {
     [Authorize]
-    public class DashboardController : Controller
+    public class TemplateController : Controller
     {
-        // GET: Dashboard
+        // GET: Template
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Coin()
         {
             return View();
         }

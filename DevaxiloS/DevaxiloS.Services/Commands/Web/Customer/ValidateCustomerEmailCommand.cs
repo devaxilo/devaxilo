@@ -53,6 +53,7 @@ namespace DevaxiloS.Services.Commands.Web.Customer
                     };
 
                     context.Accounts.Add(customer);
+                    context.SaveChanges();
                     userLogin.AccId = customer.Id;
                 }
                 else

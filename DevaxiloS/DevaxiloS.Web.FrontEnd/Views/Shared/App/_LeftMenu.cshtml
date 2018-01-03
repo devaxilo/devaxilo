@@ -1,0 +1,57 @@
+﻿@using DevaxiloS.Services.CustomIdentity
+@{
+    var email = User.GetEmail();
+}
+
+<nav class="main-menu">
+    <nav class="nav" role="navigation">
+        <ul class="nav__list">
+            <li>
+                <input id="mn-group-0" type="checkbox" hidden="">
+                <label for="mn-group-0">
+                    <a href="@Url.Action("Index", "Profile")">
+                        <i class="fa fa-user-o fa-2x"></i>
+                    </a>
+                    <div class="nav-text">
+                        <a href="@Url.Action("Index", "Profile")">
+                            @email
+                        </a>
+                    </div>
+                </label>
+            </li>
+            <li>
+                <input id="mn-group-2" type="checkbox" hidden="">
+                <label for="mn-group-2">
+                    <a href="@Url.Action("Index", "Template")">
+                        <i class="fa fa-book fa-2x"></i>
+                    </a>
+                    <div class="nav-text">
+                        <a href="@Url.Action("Index", "Template")">Hướng dẫn</a>
+                    </div>
+                </label>
+            </li>
+            <li>
+                <input id="mn-group-1" type="checkbox" hidden="">
+                <label for="mn-group-1">
+                    <a href="@Url.Action("Index", "Dashboard")">
+                        <i class="fa fa-bar-chart-o fa-2x"></i>
+                    </a>
+                    <div class="nav-text">
+                        <a href="@Url.Action("Index", "Dashboard")">Bảng thống kê</a>
+                    </div>
+                </label>
+            </li>
+            <li>
+                <input id="mn-group-7" type="checkbox" hidden="">
+                <label for="mn-group-7">
+                    <a href="@Url.Action("LogOff", "Account")">
+                        <i class="fa fa-2x fa-sign-out"></i>
+                    </a>
+                    <div class="nav-text">
+                        <a href="@Url.Action("LogOff", "Account")">Log Out</a>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </nav>
+</nav>
