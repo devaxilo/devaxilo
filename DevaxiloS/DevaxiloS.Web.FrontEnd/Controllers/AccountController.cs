@@ -61,7 +61,8 @@ namespace DevaxiloS.Web.FrontEnd.Controllers
                 ViewBag.Email = model.Email;
                 return View("ValidateError");
             }
-
+            /*Dang cho*/
+            return null;
 
         }
 
