@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    @Html.Partial("App/_Head")
+</head>
+<body>
+   
+    <div class="area"></div>
+    @Html.Partial("App/_LeftAdminMenu")
+    <div class="quickNotification-container">
+        <div id="divMsgNotification" class="quickNotification">
+        </div>
+    </div>
+    @RenderBody()
+    @Scripts.Render("~/bundles/app_js")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
