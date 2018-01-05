@@ -6,10 +6,9 @@ using System.Web.Mvc;
 
 namespace DevaxiloS.Web.FrontEnd.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ProfileController : Controller
     {
-        // GET: Profile
         public ActionResult Index()
         {
             return View();

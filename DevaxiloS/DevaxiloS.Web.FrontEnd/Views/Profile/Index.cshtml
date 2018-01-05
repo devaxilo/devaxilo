@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Thông tin cá nhân";
+    Layout = "~/Views/Shared/App/_ProfileLayout.cshtml";
+}
+
+<section>
+    <div id="divMainContainer" class="container">
+        <div class="row">
+            <div class="marg-left-70">
+                <div class="col-md-12">
+                    <div class="list">
+                        <div class="list-item list-item-separator">Thông tin cơ bản</div>
+                        <div class="list-item panel">
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-10">
+                                    <div class="form-custom form-custom-padding">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <span class="form-custom-error-text">*</span><label>&nbsp;Họ và Tên</label>
+                                                <input type="text" class="form-control" data-bind="textInput: FullName" maxlength="50">
+                                                <div class="clearfix"></div>
+                                                <span class="form-custom-error-text" data-bind="text: BasicInfoValidationErrors().FullName,
+                                                      visible: BasicInfoValidationErrors().FullName != null"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <span class="form-custom-error-text">*</span><label>&nbsp;Tên hiển thị</label>
+                                                <input type="text" class="form-control" data-bind="textInput: NickName" maxlength="20">
+                                                <span class="form-custom-error-text" data-bind="text: BasicInfoValidationErrors().NickName,
+                                                      visible: BasicInfoValidationErrors().NickName != null"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list">
+                        <div class="list-item list-item-separator">Email và SĐT</div>
+                        <div class="list-item panel">
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-10">
+                                    <div class="form-custom form-custom-padding">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" class="form-control" data-bind="textInput: Email" disabled="disabled">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <span class="form-custom-error-text">*</span><label>&nbsp;Mobile</label>
+                                                <input type="text" class="form-control" data-bind="textInput: Mobile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <button type="button" class="btn btn-success">Lưu thay đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts
+{
+    @*@Scripts.Render("~/bundles/profile_js")*@
+    <script>
+        common.activateMenu("details");
+    </script>
+}
