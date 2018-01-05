@@ -14,6 +14,12 @@ namespace DevaxiloS.DataAccess.MsSql.EntityFramework
         [StringLength(100)]
         public string FullName { get; set; }
 
+        [StringLength(20)]
+        public string NickName { get; set; }
+
+        [StringLength(20)]
+        public string Phone { get; set; }
+
         [Required]
         [StringLength(100)]
         public string Email { get; set; }

@@ -17,6 +17,14 @@ namespace DevaxiloS.DataAccess.MsSql.EntityFramework
             modelBuilder.Entity<Account>()
                 .Property(e => e.Email)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Account>()
+                .Property(e => e.Phone)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Account>()
+                .Property(e => e.NickName)
+                .IsUnicode(false);
         }
     }
 }
