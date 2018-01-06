@@ -52,6 +52,7 @@
     <Compile Include="EntityFramework\Account.cs" />
     <Compile Include="EntityFramework\AccountLogin.cs" />
     <Compile Include="EntityFramework\DevaxiloContext.cs" />
+    <Compile Include="EntityFramework\KetQuaXoSoMienBac.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
