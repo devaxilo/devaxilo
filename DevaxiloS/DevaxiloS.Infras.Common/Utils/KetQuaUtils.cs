@@ -46,241 +46,242 @@ namespace DevaxiloS.Infras.Common.Utils
             {
                 if (objKetqua == null)
                 {
-                    objKetqua = new KetQuaXoSoMienBac();
-                    objKetqua.CreatedDate = date;
-                    Match matchDB;
-                    Match matchNhat;
+                    objKetqua = new KetQuaXoSoMienBac { CreatedDate = date };
+                }
 
-                    string strGiaiDB = string.Empty;
-                    string strGiaiNhat = string.Empty;
-                    string strGiaiNhi = string.Empty;
-                    string strGiaiBa = string.Empty;
-                    string strGiaiTu = string.Empty;
-                    string strGiaiNam = string.Empty;
-                    string strGiaiSau = string.Empty;
-                    string strGiaiBay = string.Empty;
-                    string strDe = string.Empty;
-                    string strLo = string.Empty;
-                    string strLoDAU = string.Empty;
-                    string strChuoiSo = string.Empty;
-                    string strDate = string.Empty;
+                Match matchDB;
+                Match matchNhat;
 
-                    string url = string.Format("http://www.minhngoc.net.vn/ket-qua-xo-so/mien-bac/{0}-{1}-{2}.html", date.Day, date.Month, date.Year);
+                string strGiaiDb = string.Empty;
+                string strGiaiNhat = string.Empty;
+                string strGiaiNhi = string.Empty;
+                string strGiaiBa = string.Empty;
+                string strGiaiTu = string.Empty;
+                string strGiaiNam = string.Empty;
+                string strGiaiSau = string.Empty;
+                string strGiaiBay = string.Empty;
+                string strDe = string.Empty;
+                string strLo = string.Empty;
+                string strLoDau = string.Empty;
 
-                    string strHTML = GetWebContent(url);
+                string strDate = string.Empty;
 
-                    string replacekey = ConfigurationSettings.AppSettings["RegexDel"].ToString();
+                string url = string.Format("http://www.minhngoc.net.vn/ket-qua-xo-so/mien-bac/{0}-{1}-{2}.html", date.Day, date.Month, date.Year);
 
-                    strHTML = Regex.Replace(strHTML, replacekey, string.Empty);
+                string strHtml = GetWebContent(url);
 
-                    /*Lay ngay thang chuan*/
-                    Match matchDATE = Regex.Match(strHTML, "title=\"Click xem KQXS 3 Miền Ngày: (.*?)\">");
-                    while (matchDATE.Success)
-                    {
-                        strDate = matchDATE.Groups[1].Value.Trim();
-                        matchDATE = matchDATE.NextMatch();
-                        if (strDate != string.Empty)
-                        {
-                            break;
-                        }
-                    }
+                string replacekey = ConfigurationSettings.AppSettings["RegexDel"].ToString();
 
-                    DateTime dateParse = new DateTime(2001, 01, 01);
+                strHtml = Regex.Replace(strHtml, replacekey, string.Empty);
+
+                /*Lay ngay thang chuan*/
+                Match matchDate = Regex.Match(strHtml, "title=\"Click xem KQXS 3 Miền Ngày: (.*?)\">");
+                while (matchDate.Success)
+                {
+                    strDate = matchDate.Groups[1].Value.Trim();
+                    matchDate = matchDate.NextMatch();
                     if (strDate != string.Empty)
                     {
-                        string[] arrayDate = strDate.Split('/');
-                        dateParse = new DateTime(int.Parse(arrayDate[2]), int.Parse(arrayDate[1]), int.Parse(arrayDate[0]));
-                    }
-
-                    if (dateParse == date)
-                    {
-
-                        #region GIAIDB
-                        //Giai DB
-                        matchDB = Regex.Match(strHTML, "<td class=\"giaidb\">(.*?)</td>");
-                        while (matchDB.Success)
-                        {
-                            matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
-                            while (matchNhat.Success)
-                            {
-                                strGiaiDB = matchNhat.Groups[1].Value.Trim();
-                                strDe = matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2);
-                                strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
-                                strLoDAU += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
-                                matchNhat = matchNhat.NextMatch();
-                            }
-                            matchDB = matchDB.NextMatch();
-                            break;
-                        }
-
-                        #endregion
-
-                        #region GIAI NHAT
-                        //Giai nhat
-                        matchDB = Regex.Match(strHTML, "<td class=\"giai1\">(.*?)</td>");
-                        while (matchDB.Success)
-                        {
-                            matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
-                            while (matchNhat.Success)
-                            {
-                                strGiaiNhat = matchNhat.Groups[1].Value.Trim();
-                                strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
-                                strLoDAU += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
-                                matchNhat = matchNhat.NextMatch();
-                            }
-                            break;
-                        }
-                        #endregion
-
-                        #region GIAI HAI
-                        //Giai hai
-                        matchDB = Regex.Match(strHTML, "<td class=\"giai2\">(.*?)</td>");
-                        while (matchDB.Success)
-                        {
-                            matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
-                            while (matchNhat.Success)
-                            {
-                                strGiaiNhi += matchNhat.Groups[1].Value.Trim() + "|";
-
-                                strLo += matchNhat.Groups[1].Value.Trim().Substring(strGiaiDB.Length - 2, 2) + "|";
-                                strLoDAU += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
-                                matchNhat = matchNhat.NextMatch();
-                            }
-                            break;
-                        }
-
-                        #endregion
-
-                        #region GIAI BA
-                        //Giai ba
-                        matchDB = Regex.Match(strHTML, "<td class=\"giai3\">(.*?)</td>");
-                        while (matchDB.Success)
-                        {
-                            matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
-                            while (matchNhat.Success)
-                            {
-                                strGiaiBa += matchNhat.Groups[1].Value.Trim() + "|";
-
-                                strLo += matchNhat.Groups[1].Value.Trim().Substring(strGiaiDB.Length - 2, 2) + "|";
-                                strLoDAU += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
-                                matchNhat = matchNhat.NextMatch();
-                            }
-                            break;
-                        }
-                        #endregion
-
-                        #region GIAI TU
-                        //Giai tu
-                        matchDB = Regex.Match(strHTML, "<td class=\"giai4\">(.*?)</td>");
-                        while (matchDB.Success)
-                        {
-                            matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
-                            while (matchNhat.Success)
-                            {
-                                strGiaiTu += matchNhat.Groups[1].Value.Trim() + "|";
-
-                                strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
-                                strLoDAU += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
-                                matchNhat = matchNhat.NextMatch();
-                            }
-                            break;
-                        }
-                        #endregion
-
-                        #region GIAI NAM
-                        //Giai nam
-                        matchDB = Regex.Match(strHTML, "<td class=\"giai5\">(.*?)</td>");
-                        while (matchDB.Success)
-                        {
-                            matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
-                            while (matchNhat.Success)
-                            {
-                                strGiaiNam += matchNhat.Groups[1].Value.Trim() + "|";
-
-                                strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
-                                strLoDAU += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
-                                matchNhat = matchNhat.NextMatch();
-                            }
-                            break;
-                        }
-                        #endregion
-
-                        #region GIAI SAU
-                        //Giai SAU
-                        matchDB = Regex.Match(strHTML, "<td class=\"giai6\">(.*?)</td>");
-                        while (matchDB.Success)
-                        {
-                            matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
-                            while (matchNhat.Success)
-                            {
-                                strGiaiSau += matchNhat.Groups[1].Value.Trim() + "|";
-
-                                strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
-                                strLoDAU += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
-                                matchNhat = matchNhat.NextMatch();
-                            }
-                            break;
-                        }
-                        #endregion
-
-                        #region GIAI BAY
-                        //Giai bay
-                        matchDB = Regex.Match(strHTML, "<td class=\"giai7\">(.*?)</td>");
-                        while (matchDB.Success)
-                        {
-                            matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
-                            while (matchNhat.Success)
-                            {
-                                strGiaiBay += matchNhat.Groups[1].Value.Trim() + "|";
-
-                                strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
-                                strLoDAU += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
-                                matchNhat = matchNhat.NextMatch();
-                            }
-                            break;
-                        }
-                        #endregion
-
-                        #region "DAY VAO DB"
-                        string[] array;
-                        objKetqua.G0 = strGiaiDB.Trim();
-                        objKetqua.G1 = strGiaiNhat.Trim();
-                        array = strGiaiNhi.Split('|');
-                        objKetqua.G21 = array[0].Trim();
-                        objKetqua.G22 = array[1].Trim();
-                        array = strGiaiBa.Split('|');
-                        objKetqua.G31 = array[0].Trim();
-                        objKetqua.G32 = array[1].Trim();
-                        objKetqua.G33 = array[2].Trim();
-                        objKetqua.G34 = array[3].Trim();
-                        objKetqua.G35 = array[4].Trim();
-                        objKetqua.G36 = array[5].Trim();
-                        array = strGiaiTu.Split('|');
-                        objKetqua.G41 = array[0].Trim();
-                        objKetqua.G42 = array[1].Trim();
-                        objKetqua.G43 = array[2].Trim();
-                        objKetqua.G44 = array[3].Trim();
-                        array = strGiaiNam.Split('|');
-                        objKetqua.G51 = array[0].Trim();
-                        objKetqua.G52 = array[1].Trim();
-                        objKetqua.G53 = array[2].Trim();
-                        objKetqua.G54 = array[3].Trim();
-                        objKetqua.G55 = array[4].Trim();
-                        objKetqua.G56 = array[5].Trim();
-                        array = strGiaiSau.Split('|');
-                        objKetqua.G61 = array[0].Trim();
-                        objKetqua.G62 = array[1].Trim();
-                        objKetqua.G63 = array[2].Trim();
-                        array = strGiaiBay.Split('|');
-                        objKetqua.G71 = array[0].Trim();
-                        objKetqua.G72 = array[1].Trim();
-                        objKetqua.G73 = array[2].Trim();
-                        objKetqua.G74 = array[3].Trim();
-                        objKetqua.LoCuoi = strLo;
-                        objKetqua.De = strDe;
-                        #endregion
+                        break;
                     }
                 }
+
+                DateTime dateParse = new DateTime(2001, 01, 01);
+                if (strDate != string.Empty)
+                {
+                    string[] arrayDate = strDate.Split('/');
+                    dateParse = new DateTime(int.Parse(arrayDate[2]), int.Parse(arrayDate[1]), int.Parse(arrayDate[0]));
+                }
+
+                if (dateParse == date)
+                {
+
+                    #region GIAIDB
+                    //Giai DB
+                    matchDB = Regex.Match(strHtml, "<td class=\"giaidb\">(.*?)</td>");
+                    while (matchDB.Success)
+                    {
+                        matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
+                        while (matchNhat.Success)
+                        {
+                            strGiaiDb = matchNhat.Groups[1].Value.Trim();
+                            strDe = matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2);
+                            strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
+                            strLoDau += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
+                            matchNhat = matchNhat.NextMatch();
+                        }
+                        matchDB = matchDB.NextMatch();
+                        break;
+                    }
+
+                    #endregion
+
+                    #region GIAI NHAT
+                    //Giai nhat
+                    matchDB = Regex.Match(strHtml, "<td class=\"giai1\">(.*?)</td>");
+                    while (matchDB.Success)
+                    {
+                        matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
+                        while (matchNhat.Success)
+                        {
+                            strGiaiNhat = matchNhat.Groups[1].Value.Trim();
+                            strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
+                            strLoDau += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
+                            matchNhat = matchNhat.NextMatch();
+                        }
+                        break;
+                    }
+                    #endregion
+
+                    #region GIAI HAI
+                    //Giai hai
+                    matchDB = Regex.Match(strHtml, "<td class=\"giai2\">(.*?)</td>");
+                    while (matchDB.Success)
+                    {
+                        matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
+                        while (matchNhat.Success)
+                        {
+                            strGiaiNhi += matchNhat.Groups[1].Value.Trim() + "|";
+
+                            strLo += matchNhat.Groups[1].Value.Trim().Substring(strGiaiDb.Length - 2, 2) + "|";
+                            strLoDau += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
+                            matchNhat = matchNhat.NextMatch();
+                        }
+                        break;
+                    }
+
+                    #endregion
+
+                    #region GIAI BA
+                    //Giai ba
+                    matchDB = Regex.Match(strHtml, "<td class=\"giai3\">(.*?)</td>");
+                    while (matchDB.Success)
+                    {
+                        matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
+                        while (matchNhat.Success)
+                        {
+                            strGiaiBa += matchNhat.Groups[1].Value.Trim() + "|";
+
+                            strLo += matchNhat.Groups[1].Value.Trim().Substring(strGiaiDb.Length - 2, 2) + "|";
+                            strLoDau += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
+                            matchNhat = matchNhat.NextMatch();
+                        }
+                        break;
+                    }
+                    #endregion
+
+                    #region GIAI TU
+                    //Giai tu
+                    matchDB = Regex.Match(strHtml, "<td class=\"giai4\">(.*?)</td>");
+                    while (matchDB.Success)
+                    {
+                        matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
+                        while (matchNhat.Success)
+                        {
+                            strGiaiTu += matchNhat.Groups[1].Value.Trim() + "|";
+
+                            strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
+                            strLoDau += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
+                            matchNhat = matchNhat.NextMatch();
+                        }
+                        break;
+                    }
+                    #endregion
+
+                    #region GIAI NAM
+                    //Giai nam
+                    matchDB = Regex.Match(strHtml, "<td class=\"giai5\">(.*?)</td>");
+                    while (matchDB.Success)
+                    {
+                        matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
+                        while (matchNhat.Success)
+                        {
+                            strGiaiNam += matchNhat.Groups[1].Value.Trim() + "|";
+
+                            strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
+                            strLoDau += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
+                            matchNhat = matchNhat.NextMatch();
+                        }
+                        break;
+                    }
+                    #endregion
+
+                    #region GIAI SAU
+                    //Giai SAU
+                    matchDB = Regex.Match(strHtml, "<td class=\"giai6\">(.*?)</td>");
+                    while (matchDB.Success)
+                    {
+                        matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
+                        while (matchNhat.Success)
+                        {
+                            strGiaiSau += matchNhat.Groups[1].Value.Trim() + "|";
+
+                            strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
+                            strLoDau += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
+                            matchNhat = matchNhat.NextMatch();
+                        }
+                        break;
+                    }
+                    #endregion
+
+                    #region GIAI BAY
+                    //Giai bay
+                    matchDB = Regex.Match(strHtml, "<td class=\"giai7\">(.*?)</td>");
+                    while (matchDB.Success)
+                    {
+                        matchNhat = Regex.Match(matchDB.Groups[1].Value.Trim(), "<div>(.*?)</div>");
+                        while (matchNhat.Success)
+                        {
+                            strGiaiBay += matchNhat.Groups[1].Value.Trim() + "|";
+
+                            strLo += matchNhat.Groups[1].Value.Trim().Substring(matchNhat.Groups[1].Value.Trim().Length - 2, 2) + "|";
+                            strLoDau += matchNhat.Groups[1].Value.Trim().Substring(0, 2) + "|";
+                            matchNhat = matchNhat.NextMatch();
+                        }
+                        break;
+                    }
+                    #endregion
+
+                    #region "DAY VAO DB"
+                    string[] array;
+                    objKetqua.G0 = strGiaiDb.Trim();
+                    objKetqua.G1 = strGiaiNhat.Trim();
+                    array = strGiaiNhi.Split('|');
+                    objKetqua.G21 = array[0].Trim();
+                    objKetqua.G22 = array[1].Trim();
+                    array = strGiaiBa.Split('|');
+                    objKetqua.G31 = array[0].Trim();
+                    objKetqua.G32 = array[1].Trim();
+                    objKetqua.G33 = array[2].Trim();
+                    objKetqua.G34 = array[3].Trim();
+                    objKetqua.G35 = array[4].Trim();
+                    objKetqua.G36 = array[5].Trim();
+                    array = strGiaiTu.Split('|');
+                    objKetqua.G41 = array[0].Trim();
+                    objKetqua.G42 = array[1].Trim();
+                    objKetqua.G43 = array[2].Trim();
+                    objKetqua.G44 = array[3].Trim();
+                    array = strGiaiNam.Split('|');
+                    objKetqua.G51 = array[0].Trim();
+                    objKetqua.G52 = array[1].Trim();
+                    objKetqua.G53 = array[2].Trim();
+                    objKetqua.G54 = array[3].Trim();
+                    objKetqua.G55 = array[4].Trim();
+                    objKetqua.G56 = array[5].Trim();
+                    array = strGiaiSau.Split('|');
+                    objKetqua.G61 = array[0].Trim();
+                    objKetqua.G62 = array[1].Trim();
+                    objKetqua.G63 = array[2].Trim();
+                    array = strGiaiBay.Split('|');
+                    objKetqua.G71 = array[0].Trim();
+                    objKetqua.G72 = array[1].Trim();
+                    objKetqua.G73 = array[2].Trim();
+                    objKetqua.G74 = array[3].Trim();
+                    objKetqua.LoCuoi = strLo;
+                    objKetqua.De = strDe;
+                    #endregion
+                }
+
             }
             catch (Exception)
             {
