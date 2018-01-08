@@ -1,6 +1,10 @@
 ﻿@using DevaxiloS.Services.CustomIdentity
 @{
-    var email = User.GetEmail();
+    string email = "";
+    if (User != null)
+    {
+        email = User.GetEmail();
+    }
 }
 
 <nav class="main-menu">
@@ -44,12 +48,25 @@
             <li>
                 <input id="mn-group-7" type="checkbox" hidden="">
                 <label for="mn-group-7">
-                    <a href="@Url.Action("LogOff", "Account")">
-                        <i class="fa fa-2x fa-sign-out"></i>
-                    </a>
-                    <div class="nav-text">
-                        <a href="@Url.Action("LogOff", "Account")">Log Out</a>
-                    </div>
+                    @if (!string.IsNullOrEmpty(email))
+                    {
+                        <a href="@Url.Action("LogOff", "Account")">
+                            <i class="fa fa-2x fa-sign-out"></i>
+                        </a>
+                        <div class="nav-text">
+                            <a href="@Url.Action("LogOff", "Account")">Log Out</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Login", "Account")">
+                            <i class="fa fa-2x fa-sign-out"></i>
+                        </a>
+                        <div class="nav-text">
+                            <a href="@Url.Action("Login", "Account")">Login</a>
+                        </div>
+                    }
+
                 </label>
             </li>
         </ul>

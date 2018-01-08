@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Web\Customer\ValidateCustomerEmailCommand.cs" />
+    <Compile Include="Commands\Web\Dashboard\GetKetQuaXoSoCommand.cs" />
     <Compile Include="Commands\Web\Trigger\LayKetQuaXoSoMienBacJob.cs" />
     <Compile Include="Configuration\ServiceLocator.cs" />
     <Compile Include="CustomIdentity\AspnetIdentityUser.cs" />
@@ -96,7 +97,6 @@
     <Folder Include="Commands\Common\" />
     <Folder Include="Commands\Web\Admin\" />
     <Folder Include="Commands\Web\Authentication\" />
-    <Folder Include="Commands\Web\Dashboard\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

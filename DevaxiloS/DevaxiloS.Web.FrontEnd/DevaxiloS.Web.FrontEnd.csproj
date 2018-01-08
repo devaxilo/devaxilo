@@ -200,6 +200,7 @@
     <Content Include="Assets\css\custom.css" />
     <Content Include="Assets\css\daterangepicker.css" />
     <Content Include="Assets\css\font-awesome.min.css" />
+    <Content Include="Assets\css\ketqua.css" />
     <Content Include="Assets\css\openSansFont.css" />
     <Content Include="Assets\css\PagedList.css" />
     <Content Include="Assets\css\select2.min.css" />

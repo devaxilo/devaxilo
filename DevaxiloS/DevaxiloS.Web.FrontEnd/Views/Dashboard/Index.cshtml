@@ -1,8 +1,31 @@
 ﻿
 @{
-    ViewBag.Title = "Bảng điều khiển";
+    ViewBag.Title = "Kết quả xổ số";
     Layout = "~/Views/Shared/App/_DashboardLayout.cshtml";
 }
 
-<h2>Index</h2>
+@*@Scripts.Render("~/bundles/ketqua_css")*@
+
+
+<section>
+    <div id="divMainContainer" class="container">
+        <div class="row">
+            <div class="marg-left-70">
+                <div class="col-md-12">
+                    <div id="wrapper">
+                        <!-- Navigation -->
+                        <!-- Page Content -->
+                        <div id="page-wrapper">
+                            <div class="container-fluid">
+                                @Html.Raw(HttpUtility.HtmlDecode(ViewBag.Content))
+                            </div>
+                            <!-- /.container-fluid -->
+                        </div>
+                        <!-- /#page-wrapper -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
