@@ -63,6 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Web\Authentication\SecureLoginCommand.cs" />
+    <Compile Include="Commands\Web\Customer\CheckUserLoginCommand.cs" />
     <Compile Include="Commands\Web\Customer\ValidateCustomerEmailCommand.cs" />
     <Compile Include="Commands\Web\Dashboard\GetKetQuaXoSoCommand.cs" />
     <Compile Include="Commands\Web\Trigger\LayKetQuaXoSoMienBacJob.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="CustomIdentity\AspnetIdentityUser.cs" />
     <Compile Include="DomainModels\BaseWebRequest.cs" />
     <Compile Include="DomainModels\Customer\UserRequestcs.cs" />
+    <Compile Include="DomainModels\Customer\UserResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,7 +99,6 @@
   <ItemGroup>
     <Folder Include="Commands\Common\" />
     <Folder Include="Commands\Web\Admin\" />
-    <Folder Include="Commands\Web\Authentication\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

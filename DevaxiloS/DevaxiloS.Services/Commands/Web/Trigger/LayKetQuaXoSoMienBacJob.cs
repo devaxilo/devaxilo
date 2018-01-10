@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using DevaxiloS.DataAccess.MsSql.EntityFramework;
@@ -12,29 +11,21 @@ namespace DevaxiloS.Services.Commands.Web.Trigger
     {
         public void Execute(IJobExecutionContext context)
         {
-            try
+            using (var dbContext = new DevaxiloContext())
             {
-                /*Goi ham lay ket qua*/
-                using (var dbContext = new DevaxiloContext())
+                var objKetQua = dbContext.KetQuaXoSoMienBacs.OrderByDescending(u => u.Id).Take(1).FirstOrDefault();
+                if (objKetQua != null && objKetQua.CreatedDate.Date != DateTime.UtcNow.Date)
                 {
-                    var objKetQua = dbContext.KetQuaXoSoMienBacs.OrderByDescending(u => u.Id).Take(1).FirstOrDefault();
-                    if (objKetQua != null && objKetQua.CreatedDate.Date != DateTime.UtcNow.Date)
-                    {
-                        objKetQua = null;
-                    }
-                    /*Lay ket qua*/
-                    KetQuaUtils fnKetQua = new KetQuaUtils();
-                    var objKetQuaHt = fnKetQua.AnalysisLotteryFromMinhNgoc(DateTime.UtcNow.Date, objKetQua);
-                    if (objKetQuaHt != null)
-                    {
-                        dbContext.KetQuaXoSoMienBacs.AddOrUpdate(objKetQuaHt);
-                        dbContext.SaveChanges();
-                    }
+                    objKetQua = null;
                 }
-            }
-            catch (Exception ex)
-            {
-
+                /*Lay ket qua*/
+                KetQuaUtils fnKetQua = new KetQuaUtils();
+                var objKetQuaHt = fnKetQua.AnalysisLotteryFromMinhNgoc(DateTime.UtcNow.Date, objKetQua);
+                if (objKetQuaHt != null)
+                {
+                    dbContext.KetQuaXoSoMienBacs.AddOrUpdate(objKetQuaHt);
+                    dbContext.SaveChanges();
+                }
             }
         }
     }

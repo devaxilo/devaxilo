@@ -7,6 +7,8 @@ using DevaxiloS.Infras.Common.Constants;
 using DevaxiloS.Infras.Common.Enums;
 using DevaxiloS.Infras.Common.Utils;
 using DevaxiloS.Infras.Messaging;
+using DevaxiloS.Services.CustomIdentity;
+using Microsoft.AspNet.Identity;
 
 namespace DevaxiloS.Services.Commands.Web.Customer
 {
@@ -43,13 +45,16 @@ namespace DevaxiloS.Services.Commands.Web.Customer
 
                 if (user == null)
                 {
+                    var userManager = new UserManager<AspnetIdentityUser>(new UserStore());
+
                     var customer = new Account
                     {
                         Email = command.Email,
                         Status = (byte) SysStatus.New,
                         CreatedAt = dnow,
                         EnableTransferAuthen = false,
-                        UUID = Guid.NewGuid()
+                        UUID = Guid.NewGuid(),
+                        HashPassword = userManager.PasswordHasher.HashPassword(command.Email)
                     };
 
                     context.Accounts.Add(customer);

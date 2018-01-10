@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using DevaxiloS.DataAccess.MsSql.EntityFramework;
 using DevaxiloS.Infras.Commands;
-using DevaxiloS.Infras.Common.Constants;
-using DevaxiloS.Infras.Common.Enums;
-using DevaxiloS.Infras.Common.Utils;
 using DevaxiloS.Infras.Messaging;
 
 namespace DevaxiloS.Services.Commands.Web.Dashboard
@@ -30,7 +24,7 @@ namespace DevaxiloS.Services.Commands.Web.Dashboard
         {
             using (var context = new DevaxiloContext())
             {
-                string[] dayOfweek = new string[] { "CHỦ NHẬT", "THỨ 2", "THỨ 3", "THỨ 4", "THỨ 5", "THỨ 6", "THỨ 7" };
+                string[] dayOfweek = { "CHỦ NHẬT", "THỨ 2", "THỨ 3", "THỨ 4", "THỨ 5", "THỨ 6", "THỨ 7" };
 
                 KetQuaXoSoMienBac objKetQua = context.KetQuaXoSoMienBacs.OrderByDescending(u => u.Id).Take(1).FirstOrDefault();
 

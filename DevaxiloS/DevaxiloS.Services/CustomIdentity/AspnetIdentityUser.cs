@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using DevaxiloS.Infras.Common.Enums;
+using DevaxiloS.Services.Commands.Web.Customer;
 using DevaxiloS.Services.Configuration;
 using Microsoft.AspNet.Identity;
 
@@ -16,7 +17,6 @@ namespace DevaxiloS.Services.CustomIdentity
         public Guid UserId { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
-        public string FullName { get; set; }
         public string PasswordHash { get; set; }
         public SysStatus UserStatus { get; set; }
     }
@@ -38,18 +38,6 @@ namespace DevaxiloS.Services.CustomIdentity
         public static string GetEmail(this IPrincipal user)
         {
             var claim = ((ClaimsIdentity)user.Identity).FindFirst(ClaimTypes.Email);
-            return claim?.Value;
-        }
-
-        public static string GetPasswordHash(this IPrincipal user)
-        {
-            var claim = ((ClaimsIdentity)user.Identity).FindFirst("PasswordHash");
-            return claim?.Value;
-        }
-
-        public static string GetFullName(this IPrincipal user)
-        {
-            var claim = ((ClaimsIdentity)user.Identity).FindFirst("FullName");
             return claim?.Value;
         }
     }
@@ -83,36 +71,27 @@ namespace DevaxiloS.Services.CustomIdentity
 
         public Task<AspnetIdentityUser> FindByNameAsync(string userName)
         {
-            throw new NotImplementedException();
-            //if (string.IsNullOrWhiteSpace(userName))
-            //    throw new ArgumentNullException(nameof(userName));
-            //var cmdBus = ServiceLocator.Services.CommandBus;
-            //var cmd = new CheckUserLoginCommand(0, userName);
-            //cmdBus.Send(cmd);
-            //var user = cmd.Response.ResponseObj;
-            //var task = Task<AspnetIdentityUser>.Factory.StartNew(() =>
-            //{
-            //    if (user == null)
-            //        return new AspnetIdentityUser();
-            //    return new AspnetIdentityUser
-            //    {
-            //        UserDbId = user.Id,
-            //        Email = user.Email,
-            //        UserName = user.Email,
-            //        PasswordHash = user.PasswordHash,
-            //        FirstName = user.FirstName,
-            //        LastName = user.LastName,
-            //        Expired = (user.ExpiredAt.HasValue && user.ExpiredAt.Value < DateTime.UtcNow) ? "1" : "0",
-            //        UserStatus = user.UserStatus,
-            //        UserId = user.UserId,
-            //        Roles = user.Roles,
-            //        OrganisationId = user.OrganisationId.HasValue ? user.OrganisationId.ToString() : string.Empty,
-            //        OrganisationName = user.OrganisationName,
-            //        GroupId = user.GroupId.HasValue ? user.GroupId.ToString() : string.Empty,
-            //        GroupName = user.GroupName
-            //    };
-            //});
-            //return task;
+            if (string.IsNullOrWhiteSpace(userName))
+                throw new ArgumentNullException(nameof(userName));
+            var cmdBus = ServiceLocator.Services.CommandBus;
+            var cmd = new CheckUserLoginCommand(0, userName);
+            cmdBus.Send(cmd);
+            var user = cmd.Response.ResponseObj;
+            var task = Task<AspnetIdentityUser>.Factory.StartNew(() =>
+            {
+                if (user == null)
+                    return new AspnetIdentityUser();
+                return new AspnetIdentityUser
+                {
+                    UserDbId = user.Id,
+                    Email = user.Email,
+                    UserName = user.Email,
+                    PasswordHash = user.PasswordHash,
+                    UserStatus = user.UserStatus,
+                    UserId = user.UserId,
+                };
+            });
+            return task;
         }
 
         public Task AddLoginAsync(AspnetIdentityUser user, UserLoginInfo login)

@@ -13,5 +13,7 @@ namespace DevaxiloS.Services.DomainModels.Customer
     {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Wrong code")]
         public string Skey { get; set; }
+
+        public bool Remember { get; set; }
     }
 }
