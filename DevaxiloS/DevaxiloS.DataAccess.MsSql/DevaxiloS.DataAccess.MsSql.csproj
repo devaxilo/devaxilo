@@ -49,15 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomModels\ManageWalletInfoResult.cs" />
     <Compile Include="EntityFramework\Account.cs" />
     <Compile Include="EntityFramework\AccountLogin.cs" />
     <Compile Include="EntityFramework\DevaxiloContext.cs" />
     <Compile Include="EntityFramework\KetQuaXoSoMienBac.cs" />
+    <Compile Include="EntityFramework\ManageWalletInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CustomModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

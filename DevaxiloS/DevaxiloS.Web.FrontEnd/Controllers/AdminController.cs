@@ -7,6 +7,11 @@ namespace DevaxiloS.Web.FrontEnd.Controllers
         public ActionResult Index()
         {
             return View();
-        }        
+        }
+
+        public ActionResult ManageWalletDoge()
+        {
+            return View();
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace DevaxiloS.DataAccess.MsSql.EntityFramework
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<AccountLogin> AccountLogin { get; set; }
         public virtual DbSet<KetQuaXoSoMienBac> KetQuaXoSoMienBacs { get; set; }
+        public virtual DbSet<ManageWalletInfo> ManageWalletInfos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
