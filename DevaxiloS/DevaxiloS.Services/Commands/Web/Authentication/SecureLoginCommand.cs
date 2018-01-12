@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using DevaxiloS.DataAccess.MsSql.EntityFramework;
@@ -43,7 +42,7 @@ namespace DevaxiloS.Services.Commands.Web.Authentication
                 }
 
                 var dnow = DateTime.UtcNow;
-                var login = context.AccountLogin.Single(x => x.HashLoginCode.Equals(request.Skey) && x.ExpiredAt > dnow);
+                var login = context.AccountLogin.SingleOrDefault(x => x.HashLoginCode.Equals(request.Skey) && x.ExpiredAt > dnow);
 
                 if (login == null)
                 {

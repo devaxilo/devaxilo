@@ -24,7 +24,7 @@ namespace DevaxiloS.DataAccess.MsSql.EntityFramework
         [StringLength(100)]
         public string Email { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string HashPassword { get; set; }
 
         public DateTime CreatedAt { get; set; }

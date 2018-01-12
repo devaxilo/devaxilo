@@ -41,7 +41,6 @@ namespace DevaxiloS.Web.FrontEnd
                 .Include("~/Assets/css/daterangepicker.css", new CssRewriteUrlTransform())
                 .Include("~/Assets/css/user.css", new CssRewriteUrlTransform())
                 .Include("~/Assets/css/custom.css", new CssRewriteUrlTransform())
-                .Include("~/Assets/css/ketqua.css", new CssRewriteUrlTransform())
             );
 
             bundles.Add(new ScriptBundle("~/bundles/app_jq_validate_js")

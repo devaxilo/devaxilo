@@ -3,7 +3,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using DevaxiloS.Infras.Common.Constants;
 using DevaxiloS.Infras.Common.Enums;
 using DevaxiloS.Services.Commands.Web.Authentication;
 using DevaxiloS.Services.Commands.Web.Customer;

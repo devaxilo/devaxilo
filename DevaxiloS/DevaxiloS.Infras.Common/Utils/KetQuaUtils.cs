@@ -66,11 +66,11 @@ namespace DevaxiloS.Infras.Common.Utils
 
                 string strDate = string.Empty;
 
-                string url = string.Format("http://www.minhngoc.net.vn/ket-qua-xo-so/mien-bac/{0}-{1}-{2}.html", date.Day, date.Month, date.Year);
+                string url = $"http://www.minhngoc.net.vn/ket-qua-xo-so/mien-bac/{date.Day}-{date.Month}-{date.Year}.html";
 
                 string strHtml = GetWebContent(url);
 
-                string replacekey = ConfigurationSettings.AppSettings["RegexDel"].ToString();
+                string replacekey = ConfigurationManager.AppSettings["RegexDel"].ToString();
 
                 strHtml = Regex.Replace(strHtml, replacekey, string.Empty);
 

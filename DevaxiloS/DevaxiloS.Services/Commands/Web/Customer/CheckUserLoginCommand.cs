@@ -27,7 +27,7 @@ namespace DevaxiloS.Services.Commands.Web.Customer
         {
             using (var context = new DevaxiloContext())
             {
-                var user = await context.Accounts.FirstOrDefaultAsync(x => x.Email.Equals(command.Email));
+                var user = context.Accounts.FirstOrDefault(x => x.Email.Equals(command.Email));
                 if (user == null)
                 {
                     command.Response = new CommandResponse<UserLoginResponse>(null);

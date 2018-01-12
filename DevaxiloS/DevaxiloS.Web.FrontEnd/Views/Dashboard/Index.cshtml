@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/App/_DashboardLayout.cshtml";
 }
 
-@*@Scripts.Render("~/bundles/ketqua_css")*@
+<link href="~/Assets/css/ketqua.css" rel="stylesheet" />
 
 
 <section>
@@ -12,7 +12,7 @@
         <div class="row">
             <div class="marg-left-70">
                 <div class="col-md-12">
-                    <div id="wrapper" style="padding-top: 5px; ">
+                    <div id="wrapper" style="padding-top: 20px; ">
                         <!-- Navigation -->
                         <!-- Page Content -->
                         <div id="page-wrapper">
@@ -29,3 +29,9 @@
     </div>
 </section>
 
+@section Scripts
+{
+    <script>
+        common.activateMenu("kqsx");
+    </script>
+}

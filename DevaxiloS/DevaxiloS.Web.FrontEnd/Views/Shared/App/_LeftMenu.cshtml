@@ -1,10 +1,8 @@
 ﻿@using DevaxiloS.Services.CustomIdentity
 @{
-    string email = "";
-    if (User != null)
-    {
-        email = User.GetEmail();
-    }
+    string email = User.GetEmail();
+    var endIndex = email.IndexOf("@");
+    var nickName = email.Substring(0, endIndex);
 }
 
 <nav class="main-menu">
@@ -18,7 +16,7 @@
                     </a>
                     <div class="nav-text">
                         <a href="@Url.Action("Index", "Profile")">
-                            @email
+                            @nickName
                         </a>
                     </div>
                 </label>

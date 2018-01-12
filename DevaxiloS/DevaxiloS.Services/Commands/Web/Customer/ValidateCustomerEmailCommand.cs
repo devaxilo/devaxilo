@@ -40,7 +40,7 @@ namespace DevaxiloS.Services.Commands.Web.Customer
 
                 var userLogin = new AccountLogin {
                     ExpiredAt = dnow.AddMinutes(15),
-                    HashLoginCode = CryptoUtils.Encrypt(dnow.ToString(StringConstants.DateTimeFormatUs), command.Email)
+                    HashLoginCode = CryptoUtils.Encrypt(dnow.ToString(StringConstants.DateTimeFormatUs), command.Email).Replace("+", string.Empty)
                 };
 
                 if (user == null)
