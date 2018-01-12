@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using DevaxiloS.Infras.Common.Constants;
 using DevaxiloS.Infras.Common.Enums;
 using DevaxiloS.Services.Commands.Web.Authentication;
 using DevaxiloS.Services.Commands.Web.Customer;
@@ -105,6 +106,8 @@ namespace DevaxiloS.Web.FrontEnd.Controllers
             identity.AddClaim(new Claim(ClaimTypes.Email, user.Email));
             identity.AddClaim(new Claim("UserId", user.Id));
             identity.AddClaim(new Claim("PasswordHash", user.PasswordHash));
+            identity.AddClaim(new Claim("FullName", string.IsNullOrEmpty(user.FullName) ? StringConstants.NoData : user.FullName));
+            identity.AddClaim(new Claim(ClaimTypes.MobilePhone, string.IsNullOrEmpty(user.Phone) ? StringConstants.NoData : user.Phone));
             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = isPersistent }, identity);
         }
 

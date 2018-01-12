@@ -41,6 +41,8 @@ namespace DevaxiloS.Services.Commands.Web.Customer
                     UserStatus = (SysStatus)user.Status,
                     PasswordHash = user.HashPassword,
                     UserId = user.UUID,
+                    FullName = user.FullName,
+                    Phone = user.Phone
                 };
 
                 command.Response = new CommandResponse<UserLoginResponse>(userResponse);

@@ -19,7 +19,7 @@
     <label><b>Email</b></label>
     @Html.TextBoxFor(model => model.Email)
     <p>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</p>
-    <button type="submit" id="btnLogin">Đăng nhập</button>
+    <button type="button" id="btnLogin">Đăng nhập</button>
 }
 
 @section Scripts
@@ -29,7 +29,7 @@
             evt.preventDefault();
             var isValid = $("#formLogin").valid();
             if (isValid) {
-                $(this).attr("disabled", true);
+                $("#btnLogin").attr("disabled", "disabled");
                 $("#formLogin").submit();
                 return false;
             }

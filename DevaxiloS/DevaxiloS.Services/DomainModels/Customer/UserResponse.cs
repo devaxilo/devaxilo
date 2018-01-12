@@ -11,5 +11,7 @@ namespace DevaxiloS.Services.DomainModels.Customer
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public SysStatus UserStatus { get; set; }
+        public string FullName { get; set; }
+        public string Phone { get; set; }
     }
 }

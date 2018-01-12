@@ -71,6 +71,7 @@
     <Compile Include="Commands\Web\Admin\ManageWalletInfoCommand.cs" />
     <Compile Include="Commands\Web\Authentication\SecureLoginCommand.cs" />
     <Compile Include="Commands\Web\Customer\CheckUserLoginCommand.cs" />
+    <Compile Include="Commands\Web\Customer\UpdateUserInfoCommand.cs" />
     <Compile Include="Commands\Web\Customer\ValidateCustomerEmailCommand.cs" />
     <Compile Include="Commands\Web\Dashboard\GetKetQuaXoSoCommand.cs" />
     <Compile Include="Commands\Web\Trigger\LayKetQuaXoSoMienBacJob.cs" />

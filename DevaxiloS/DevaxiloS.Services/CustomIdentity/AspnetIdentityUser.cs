@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
+using DevaxiloS.Infras.Common.Constants;
 using DevaxiloS.Infras.Common.Enums;
 using DevaxiloS.Services.Commands.Web.Customer;
 using DevaxiloS.Services.Configuration;
@@ -19,6 +20,8 @@ namespace DevaxiloS.Services.CustomIdentity
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public SysStatus UserStatus { get; set; }
+        public string FullName { get; set; }
+        public string Phone { get; set; }
     }
 
     public static class UserExtended
@@ -39,6 +42,20 @@ namespace DevaxiloS.Services.CustomIdentity
         {
             var claim = ((ClaimsIdentity)user.Identity).FindFirst(ClaimTypes.Email);
             return claim?.Value;
+        }
+
+        public static string GetFullName(this IPrincipal user)
+        {
+            var claim = ((ClaimsIdentity)user.Identity).FindFirst("FullName");
+            if (claim == null) return string.Empty;
+            return claim.Value.Equals(StringConstants.NoData) ? string.Empty : claim.Value;
+        }
+
+        public static string GetPhone(this IPrincipal user)
+        {
+            var claim = ((ClaimsIdentity)user.Identity).FindFirst(ClaimTypes.MobilePhone);
+            if (claim == null) return string.Empty;
+            return claim.Value.Equals(StringConstants.NoData) ? string.Empty : claim.Value;
         }
     }
 
@@ -89,6 +106,8 @@ namespace DevaxiloS.Services.CustomIdentity
                     PasswordHash = user.PasswordHash,
                     UserStatus = user.UserStatus,
                     UserId = user.UserId,
+                    FullName = user.FullName,
+                    Phone = user.Phone
                 };
             });
             return task;

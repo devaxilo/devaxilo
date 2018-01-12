@@ -91,7 +91,7 @@ CREATE TABLE [dbo].[Account](
 	[UUID] [uniqueidentifier] NOT NULL,
 	[FullName] [nvarchar](100) NULL,
 	[Email] [varchar](100) NOT NULL,
-	[HashPassword] [nvarchar](50) NULL,
+	[HashPassword] [nvarchar](100) NULL,
 	[CreatedAt] [datetime] NOT NULL,
 	[Status] [tinyint] NOT NULL,
 	[EnableTransferAuthen] [bit] NOT NULL,
