@@ -5,7 +5,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using DevaxiloS.DataAccess.MsSql.EntityFramework;
 
-namespace DevaxiloS.Infras.Common.Utils
+namespace DevaxiloS.Services.Commands.Web.Dashboard
 {
     public class KetQuaUtils
     {

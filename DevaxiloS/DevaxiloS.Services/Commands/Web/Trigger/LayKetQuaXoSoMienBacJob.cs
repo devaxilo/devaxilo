@@ -2,7 +2,7 @@
 using System.Data.Entity.Migrations;
 using System.Linq;
 using DevaxiloS.DataAccess.MsSql.EntityFramework;
-using DevaxiloS.Infras.Common.Utils;
+using DevaxiloS.Services.Commands.Web.Dashboard;
 using Quartz;
 
 namespace DevaxiloS.Services.Commands.Web.Trigger

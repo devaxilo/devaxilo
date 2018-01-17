@@ -31,19 +31,11 @@ namespace DevaxiloS.Services.Commands.Web.Admin
                 var intId = await dbContext.SaveChangesAsync();
                 if (lstInfs.Count > 0)
                 {
-                    string jsonObject = "";
+                    
                     foreach (var item in lstInfs)
                     {
                         ManageWalletInfoResult objInfoResult = new ManageWalletInfoResult();
-                        objInfoResult.Id = item.Id;
-                        objInfoResult.DataType = item.DataType;
-                        objInfoResult.HashInfo = item.HashInfo;
-                        /*Giai ma chuoi duoc Hash*/
-                        jsonObject = CryptoUtils.Decrypt("WalletDoge", objInfoResult.HashInfo, false);
-
-                        /*Parse json to object*/
-                        objInfoResult.WalletInfo = JsonConvert.DeserializeObject<WalletInfo>(jsonObject);
-
+                       
                         lstInfoResults.Add(objInfoResult);
                     }
                 }
