@@ -184,7 +184,9 @@
     <Compile Include="Common\ClaimIdentityExtension.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BidLotteryController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\LotteryController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Global.asax.cs">
@@ -241,6 +243,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Assets\img\" />
     <Folder Include="Scripts\app\" />
+    <Folder Include="Views\BidLottery\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -341,6 +344,9 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Admin\ManageWalletDoge.cshtml" />
+    <Content Include="Views\Shared\App\_LotteryLayout.cshtml" />
+    <Content Include="Views\Lottery\MyLotto.cshtml" />
+    <Content Include="Views\Lottery\MyLottery.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

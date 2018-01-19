@@ -8,7 +8,7 @@ namespace DevaxiloS.DataAccess.MsSql.EntityFramework
     public class ManageWalletInfo
     {
         public int Id { get; set; }
-        [StringLength(100)]
+        [StringLength(500)]
         public string HashInfo { get; set; }
         public int DataType { get; set; }
     }

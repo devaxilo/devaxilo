@@ -28,7 +28,7 @@ namespace DevaxiloS.Services.Commands.Web.Authentication
             var request = command.Request;
             using (var context = new DevaxiloContext())
             {
-                var user = context.Accounts.Single(x => x.Email.Equals(request.Email));
+                var user = context.Accounts.SingleOrDefault(x => x.Email.Equals(request.Email));
                 if (user == null)
                 {
                     command.Response = new CommandResponse<bool>(false, true, "Account not exist.");
@@ -53,6 +53,15 @@ namespace DevaxiloS.Services.Commands.Web.Authentication
                 if (user.Status == (byte) SysStatus.New)
                 {
                     user.Status = (byte) SysStatus.Activated;
+                    var accBalance = new AccountBalance
+                    {
+                        Balance = 0,
+                        HoldBalance = 0,
+                        AccId = user.Id,
+                        Status = (byte) SysStatus.Activated
+                    };
+
+                    context.AccountBalances.Add(accBalance);
                     await context.SaveChangesAsync();
                 }
 

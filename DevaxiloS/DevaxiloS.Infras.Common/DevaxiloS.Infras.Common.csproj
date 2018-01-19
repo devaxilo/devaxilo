@@ -45,6 +45,7 @@
     <Compile Include="Constants\DbConstants.cs" />
     <Compile Include="Constants\StringConstants.cs" />
     <Compile Include="Enums\StatusEnums.cs" />
+    <Compile Include="Extension\DateTimeExtension.cs" />
     <Compile Include="Extension\HttpExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\CryptoUtils.cs" />

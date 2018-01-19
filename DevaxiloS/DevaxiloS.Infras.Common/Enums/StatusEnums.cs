@@ -2,6 +2,12 @@
 
 namespace DevaxiloS.Infras.Common.Enums
 {
+    public enum WalletType : byte
+    {
+        [Description("Doge Coin")]
+        DogeCoin = 1
+    }
+
     public enum SysStatus : byte
     {
         [Description("New")]

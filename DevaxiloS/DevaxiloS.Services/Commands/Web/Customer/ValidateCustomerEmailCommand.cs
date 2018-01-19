@@ -38,9 +38,12 @@ namespace DevaxiloS.Services.Commands.Web.Customer
                     return;
                 }
 
+                var rnd = new Random();
+                var slice = rnd.Next(1, 1000).ToString();
+
                 var userLogin = new AccountLogin {
                     ExpiredAt = dnow.AddMinutes(15),
-                    HashLoginCode = CryptoUtils.Encrypt(dnow.ToString(StringConstants.DateTimeFormatUs), command.Email).Replace("+", string.Empty)
+                    HashLoginCode = CryptoUtils.Encrypt(dnow.ToString(StringConstants.DateTimeFormatUs), command.Email.Replace("@", slice)).Replace("+", string.Empty)
                 };
 
                 if (user == null)

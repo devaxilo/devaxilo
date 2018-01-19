@@ -25,7 +25,7 @@
                 <input id="mn-group-2" type="checkbox" hidden="">
                 <label for="mn-group-2">
                     <a href="@Url.Action("Index", "Template")">
-                        <i class="fa fa-book fa-2x"></i>
+                        <i class="fa fa-info-circle fa-2x"></i>
                     </a>
                     <div class="nav-text">
                         <a href="@Url.Action("Index", "Template")">Hướng dẫn</a>
@@ -44,26 +44,48 @@
                 </label>
             </li>
             <li>
+                <input id="mn-group-3" type="checkbox" hidden="">
+                <label for="mn-group-3">
+                    <a href="@Url.Action("MyLotto", "Lottery")">
+                        <i class="fa fa-list-alt fa-2x"></i>
+                    </a>
+                    <div class="nav-text">
+                        <a href="@Url.Action("MyLotto", "Lottery")">Đánh lô, đề</a>
+                    </div>
+                </label>
+            </li>
+            <li>
+                <input id="mn-group-4" type="checkbox" hidden="">
+                <label for="mn-group-4">
+                    <a href="@Url.Action("Index", "Lottery")">
+                        <i class="fa fa-book fa-2x"></i>
+                    </a>
+                    <div class="nav-text">
+                        <a href="@Url.Action("Index", "BidLottery")">Ôm lô, đề</a>
+                    </div>
+                </label>
+            </li>
+            <li>
                 <input id="mn-group-7" type="checkbox" hidden="">
                 <label for="mn-group-7">
                     @if (!string.IsNullOrEmpty(email))
-                    {
-                        <a href="@Url.Action("LogOff", "Account")">
-                            <i class="fa fa-2x fa-sign-out"></i>
-                        </a>
-                        <div class="nav-text">
-                            <a href="@Url.Action("LogOff", "Account")">Log Out</a>
-                        </div>
-                    }
-                    else
-                    {
-                        <a href="@Url.Action("Login", "Account")">
-                            <i class="fa fa-2x fa-sign-out"></i>
-                        </a>
-                        <div class="nav-text">
-                            <a href="@Url.Action("Login", "Account")">Login</a>
-                        </div>
-                    }
+            {
+                <a href="@Url.Action("LogOff", "Account")">
+                    <i class="fa fa-2x fa-sign-out"></i>
+                </a>
+                <div class="nav-text">
+                    <a href="@Url.Action("LogOff", "Account")">Log Out</a>
+                </div>
+    }
+    else
+    {
+        <a href="@Url.Action("Login", "Account")">
+            <i class="fa fa-2x fa-sign-out"></i>
+        </a>
+        <div class="nav-text">
+            <a href="@Url.Action("Login", "Account")">Login</a>
+        </div>
+}
 
                 </label>
             </li>
