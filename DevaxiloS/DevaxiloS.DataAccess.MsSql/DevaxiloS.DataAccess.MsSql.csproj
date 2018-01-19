@@ -59,6 +59,7 @@
     <Compile Include="EntityFramework\AccountLogin.cs" />
     <Compile Include="EntityFramework\DevaxiloContext.cs" />
     <Compile Include="EntityFramework\KetQuaXoSoMienBac.cs" />
+    <Compile Include="EntityFramework\LotteryTransaction.cs" />
     <Compile Include="EntityFramework\ManageWalletInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,6 +74,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SqlScripts\Data_0002.sql" />
     <Content Include="SqlScripts\Data_0001.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

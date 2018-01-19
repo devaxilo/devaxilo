@@ -14,6 +14,8 @@ namespace DevaxiloS.DataAccess.MsSql.EntityFramework
         public virtual DbSet<AccountLogin> AccountLogin { get; set; }
         public virtual DbSet<KetQuaXoSoMienBac> KetQuaXoSoMienBacs { get; set; }
         public virtual DbSet<ManageWalletInfo> ManageWalletInfos { get; set; }
+        public virtual DbSet<LotteryTransaction> LotteryTransactions { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -28,6 +30,10 @@ namespace DevaxiloS.DataAccess.MsSql.EntityFramework
             modelBuilder.Entity<Account>()
                 .Property(e => e.NickName)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<LotteryTransaction>()
+                .Property(e => e.Amount)
+                .HasPrecision(19, 4);
 
             modelBuilder.Entity<AccountBalance>()
                 .Property(e => e.Balance)

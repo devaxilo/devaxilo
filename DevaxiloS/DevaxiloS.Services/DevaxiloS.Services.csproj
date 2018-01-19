@@ -76,12 +76,14 @@
     <Compile Include="Commands\Web\Customer\ValidateCustomerEmailCommand.cs" />
     <Compile Include="Commands\Web\Dashboard\GetKetQuaXoSoCommand.cs" />
     <Compile Include="Commands\Web\Dashboard\KetQuaUtils.cs" />
+    <Compile Include="Commands\Web\Lottery\SetLotteryCommand.cs" />
     <Compile Include="Commands\Web\Trigger\LayKetQuaXoSoMienBacJob.cs" />
     <Compile Include="Configuration\ServiceLocator.cs" />
     <Compile Include="CustomIdentity\AspnetIdentityUser.cs" />
     <Compile Include="DomainModels\BaseWebRequest.cs" />
     <Compile Include="DomainModels\Customer\UserRequestcs.cs" />
     <Compile Include="DomainModels\Customer\UserResponse.cs" />
+    <Compile Include="DomainModels\Lottery\LotteryRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

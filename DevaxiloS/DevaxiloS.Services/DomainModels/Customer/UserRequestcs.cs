@@ -19,8 +19,6 @@ namespace DevaxiloS.Services.DomainModels.Customer
 
     public class UserInfoRequest : BaseWebRequest
     {
-        public int UserId { get; set; }
-
         [Required(AllowEmptyStrings = false, ErrorMessage = "Hãy điền họ và tên của bạn."), MaxLength(40)]
         public string FullName { get; set; }
 
