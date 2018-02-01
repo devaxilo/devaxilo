@@ -2,12 +2,24 @@
     padding-right: 10px !important;
 }
 
+.pad-left-10 {
+    padding-left: 10px !important;
+}
+
 .no-padding-right {
     padding-right: 0 !important;
 }
 
 .marg-top-10 {
     margin-top: 10px !important;
+}
+
+.marg-top-20 {
+    margin-top: 20px !important;
+}
+
+.marg-top-40 {
+    margin-top: 40px !important;
 }
 
 .table-truncate {
@@ -26,7 +38,7 @@
 }
 
 .success {
-    color: #28b62c;
+    color: #418500;
 }
 
 .input-hidden {
@@ -34,8 +46,8 @@
     visibility: hidden!important;
 }
 
-.navbar-nav>.active>a {
-    color: #158cba !important;
+.navbar-nav > .active > a {
+    color: #418500 !important;
     text-decoration: none;
     background-color: inherit !important;
 }
@@ -51,9 +63,31 @@
     color: #767676;
 }
 
+.table-generic {
+    background: #fff;
+}
+
+.table-generic > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.table-generic > thead {
+    background: #418500;
+    color: #fff;
+    border-color: #418500;
+}
+
+.table-generic > thead > tr > th {
+    border-bottom: none !important;
+}
+
+.table-generic > thead > tr > th > a {
+    color: #fff;
+}
+
 .dashboard-icon-placeholder {
     float: left;
-    padding-right:10px;
+    padding-right: 10px;
 }
 
 .dashboard-icon-placeholder span{
@@ -572,9 +606,9 @@
     border-radius: 0
 }
 .notification-option-btn.selected {
-    color: #2A94E5;
+    color: #418500;
     border: 0;
-    border-bottom: 3px solid #2A94E5;
+    border-bottom: 3px solid #418500;
 }
 .notification-setting-header {
     padding: 10px 25px;
@@ -717,17 +751,17 @@
     opacity: .5
 }
 
-.checkBox-input[type=checkbox]:checked+.checkBox-label:after {
+.checkBox-input[type=checkbox]:checked + .checkBox-label:after {
     opacity: 1;
-    background-color: #2A94E5;
+    background-color: #418500;
 }
 
-.checkBox-input:checked+.checkBox-label {
-    background: #2A94E5;
-    border-color: #2A94E5;
+.checkBox-input:checked + .checkBox-label {
+    background: #418500;
+    border-color: #418500;
 }
-.checkBox-input:hover+.checkBox-label {
-    border-color: #2A94E5
+.checkBox-input:hover + .checkBox-label {
+    border-color: #418500;
 }
 
 .checkBox-input:disabled+.checkBox-label:after {
@@ -840,4 +874,127 @@
     -ms-flex: 1 0;
     flex: 1 0;
     min-height: 300px;
+}
+
+.text-area-info {
+    margin-top: 4px;
+    position: relative;
+    min-height: 1rem;
+}
+
+.string-count {
+    font-size: .75rem;
+    visibility: hidden;
+}
+
+.modal-body-title-logo {
+    width: auto;
+    margin-right: 15px;
+    display: block;
+    float: left;
+}
+
+.modal-body-title {
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.modal-body-multiline {
+    background: #F5F5F5;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 10px;
+    margin-top: -15px;
+}
+
+#field-options {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    list-style: none;
+    overflow-y: auto;
+    overflow-x: visible
+}
+
+#field-options h4 {
+    height: 38px;
+    margin: 25px 0 5px;
+    line-height: 38px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center
+}
+
+#field-options li.field_draggable {
+    display: block;
+    position: relative;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: #617481;
+    color: #FFF
+}
+
+#field-options li.field_draggable > div {
+    padding: 4px;
+    min-height: 38px
+}
+
+#field-options li.field_draggable:before {
+    bottom: -4px;
+    left: 6px;
+    right: 6px
+}
+
+#field-options .invisible_handle {
+    width: 0;
+    height: 0
+}
+
+.field_draggable.list-item {
+    padding: 0
+}
+
+.field_draggable .field_title {
+    line-height: 38px;
+    text-transform: capitalize;
+    font-weight: 500
+}
+
+#field-options li ul, #field-options li ol {
+    display: none;
+}
+
+.indentation-line {
+    position: absolute;
+    top: 5px;
+    left: 17px;
+    bottom: 3px;
+    width: 6px;
+    background-color: #B5DDF2;
+    border-radius: 3px;
+}
+
+.new-item-icon {
+    color: #337ab7;
+}
+
+.item-header-text {
+    line-height: 30px;
+    padding-left: 0;
+}
+
+.truncate-ellipsis {
+    display: flex;
+    table-layout: fixed;
+    white-space: nowrap;
+}
+
+.truncate-ellipsis > * {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
