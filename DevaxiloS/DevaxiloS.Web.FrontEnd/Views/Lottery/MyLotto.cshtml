@@ -1,13 +1,211 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Đánh Lô";
     Layout = "~/Views/Shared/App/_LotteryLayout.cshtml";
+
+    var dnow = DateTime.UtcNow.AddHours(7).ToString("dd/MM/yyyy");
+
 }
+
+<section>
+    <div id="divContainer" class="container">
+        <div class="row marg-left-50">
+            <div class="col-md-6">
+                <div class="panel-group marg-top-20" role="tablist">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <div class="panel-title" style="font-size: 14px">
+                                <div class="clearfix" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <div class="pull-left">
+                                        <label id="label1">Bảng ôm - @dnow</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-generic table-fixed">
+                                            <thead>
+                                            <tr style="cursor: pointer">
+                                                <th class="col-xs-3">Số</th>
+                                                <th class="col-xs-5">Tổng Tiền</th>
+                                                <th class="col-xs-4">Muốn ôm</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @for (var i = 0; i < 100; i++)
+                                            {
+                                                var str = i.ToString();
+                                                if (str.Length == 1)
+                                                {
+                                                    str = $"0{str}";
+                                                }
+                                                <tr style="cursor: pointer">
+                                                    <td class="col-xs-3">@str</td>
+                                                    <td class="col-xs-5">@str</td>
+                                                    <td class="col-xs-4">@str</td>
+                                                </tr>
+                                            }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel-group marg-top-20" role="tablist">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <div class="panel-title" style="font-size: 14px">
+                                <div class="clearfix" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <div class="pull-left">
+                                        <label id="label2">Bảng đánh - @dnow</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-generic table-fixed">
+                                            <thead>
+                                            <tr style="cursor: pointer">
+                                                <th class="col-xs-4">Số</th>
+                                                <th class="col-xs-8">Muốn đánh</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @for (var i = 0; i < 100; i++)
+                                            {
+                                                var str = i.ToString();
+                                                if (str.Length == 1)
+                                                {
+                                                    str = $"0{str}";
+                                                }
+                                                <tr style="cursor: pointer">
+                                                    <td class="col-xs-4">@str</td>
+                                                    <td class="col-xs-8">12212121212</td>
+                                                </tr>
+                                            }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row marg-left-50">
+            <div class="col-md-6">
+                <div class="panel-group marg-top-20" role="tablist">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <div class="panel-title" style="font-size: 14px">
+                                <div class="clearfix" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    <div class="pull-left">
+                                        <label id="label3">Lịch sử ôm - @dnow</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-generic table-fixed">
+                                            <thead>
+                                                <tr style="cursor: pointer">
+                                                    <th class="col-xs-3">Số</th>
+                                                    <th class="col-xs-5">Tổng Tiền</th>
+                                                    <th class="col-xs-4">Muốn ôm</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            @for (var i = 0; i < 100; i++)
+                                            {
+                                                var str = i.ToString();
+                                                if (str.Length == 1)
+                                                {
+                                                    str = $"0{str}";
+                                                }
+                                                <tr style="cursor: pointer">
+                                                    <td class="col-xs-3">@str</td>
+                                                    <td class="col-xs-5">@str</td>
+                                                    <td class="col-xs-4">@str</td>
+                                                </tr>
+                                            }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel-group marg-top-20" role="tablist">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <div class="panel-title" style="font-size: 14px">
+                                <div class="clearfix" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    <div class="pull-left">
+                                        <label id="label4">Lịch sử đánh - @dnow</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-generic table-fixed">
+                                            <thead>
+                                                <tr style="cursor: pointer">
+                                                    <th class="col-xs-4">Số</th>
+                                                    <th class="col-xs-8">Muốn đánh</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (var i = 0; i < 100; i++)
+                                            {
+                                                var str = i.ToString();
+                                                if (str.Length == 1)
+                                                {
+                                                    str = $"0{str}";
+                                                }
+                                                <tr style="cursor: pointer">
+                                                    <td class="col-xs-4">@str</td>
+                                                    <td class="col-xs-8">12212121212</td>
+                                                </tr>
+                                            }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 @section Scripts
 {
     <script>
         common.activateMenu("mylotto");
+        $(document).ready(function() {
+            
+        });
     </script>
 }
 

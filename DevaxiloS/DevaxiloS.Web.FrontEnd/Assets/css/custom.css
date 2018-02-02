@@ -835,11 +835,6 @@
     background-repeat: no-repeat
 }
 
-.default-profile-picture {
-    background-image: url(../img/default-profile.svg)!important;
-    position: relative
-}
-
 .form-custom:before,
 .form-custom:after {
     content: " ";
@@ -997,4 +992,26 @@
 .truncate-ellipsis > * {
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.table-fixed {
+    width: 100%;
+    background-color: #fff;
+}
+.table-fixed tbody {
+    height: 500px;
+    overflow-y: auto;
+    width: 100%;
+}
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+    display: block;
+}
+.table-fixed tbody td {
+    float: left;
+}
+
+.table-fixed thead tr th {
+    float: left;
+    background-color: #418500;
+    border-color: #418500;
 }

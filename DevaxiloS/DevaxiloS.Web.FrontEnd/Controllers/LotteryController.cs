@@ -2,7 +2,7 @@
 
 namespace DevaxiloS.Web.FrontEnd.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class LotteryController : Controller
     {
         public ActionResult MyLotto()
